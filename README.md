@@ -1,5 +1,5 @@
 # Simple Chat App with REST API and Socket.io
-Repo consist of both frontend and backend implementation 
+Repository consist of both frontend and backend implementation 
 
 Frontend is created using NextJS 13 and multiple other packages. Most importantly socket.io to support real time communication
 
@@ -14,3 +14,4 @@ Start backend and frontend on each of their folder
 ```bash
     npm run dev
 ```
+
