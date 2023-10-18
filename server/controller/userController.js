@@ -62,11 +62,11 @@ exports.loginUser = asyncHandler(async(req, res,next) => {
         
         const foundUser = await User.findOne({ username, admin});
         if(!foundUser) {
-            return res.json({msg: "Invalid, Check username, password, and role"});
+            return res.status(401).json({msg: "Invalid, Check username, password, and role"});
         }
         const passwordValid = await bcrypt.compare(password, foundUser.password)
         if(!passwordValid) {
-            return res.json({msg: "Invalid, Check username password, and role"});
+            return res.status(401).json({msg: "Invalid, Check username password, and role"});
         } 
         return res.json({
             msg: "Authentication Successful", 

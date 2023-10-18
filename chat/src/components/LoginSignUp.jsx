@@ -20,7 +20,7 @@ export default function LoginSignUp() {
           router.push('/chat')
         }
     
-      }, [router])
+      }, [])
 
     async function submitHandler(e) {
         e.preventDefault();

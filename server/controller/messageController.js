@@ -49,3 +49,18 @@ exports.getMessage = asyncHandler(async (req,res,next) => {
     }
     
 })
+
+exports.DeleteMessage = asyncHandler(async (req,res,next) => {
+    const { messageId } = req.params;
+    console.log(messageId)
+    if(!messageId) res.sendStatus(401);
+    const message = await Message.findById(messageId);
+    console.log(message)
+    if(!message) return res.json({message: "Message doesn't exist"}).status(304)
+    else {
+        message.content = "Message has been deleted"
+        await message.save();
+        return res.status(200).json({message: "Message has been deleted"})
+    }
+    
+})
